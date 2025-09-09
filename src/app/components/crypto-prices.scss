@@ -1,0 +1,387 @@
+.crypto-prices {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 28px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 193, 28, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 193, 28, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ffe150 0%, #ffc01c 50%, #ffe150 100%);
+    background-size: 200% 100%;
+    animation: shimmer-border 3s ease-in-out infinite;
+  }
+}
+
+.prices-header {
+  margin-bottom: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 8px 0;
+    text-shadow: 0 0 20px rgba(255, 193, 28, 0.3);
+  }
+  
+  .last-updated {
+    font-size: 12px;
+    color: #b0b0b0;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}
+
+.prices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.price-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 193, 28, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 193, 28, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(255, 193, 28, 0.1) 0%, rgba(255, 193, 28, 0.05) 100%);
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(255, 193, 28, 0.3);
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(255, 193, 28, 0.1);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &.loading {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 3;
+}
+
+.coin-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 193, 28, 0.3);
+  box-shadow: 0 0 15px rgba(255, 193, 28, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba(255, 193, 28, 0.6);
+    box-shadow: 0 0 20px rgba(255, 193, 28, 0.4);
+    transform: scale(1.1);
+  }
+  
+  &.skeleton {
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border: 2px solid rgba(255, 193, 28, 0.2);
+  }
+}
+
+.coin-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.coin-symbol {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 193, 28, 0.3);
+  
+  &.skeleton {
+    width: 45px;
+    height: 16px;
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+}
+
+.coin-name {
+  font-size: 12px;
+  color: #b0b0b0;
+  font-weight: 500;
+  
+  &.skeleton {
+    width: 70px;
+    height: 12px;
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+}
+
+.price-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  position: relative;
+  z-index: 3;
+}
+
+.price-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 193, 28, 0.3);
+  transition: all 0.3s ease;
+  
+  &.positive {
+    color: #10b981;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  }
+  
+  &.negative {
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+  }
+  
+  &.neutral {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 193, 28, 0.3);
+  }
+  
+  &.skeleton {
+    width: 70px;
+    height: 16px;
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+}
+
+.price-change {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  
+  &.positive {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  
+  &.negative {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+  
+  &.skeleton {
+    width: 50px;
+    height: 13px;
+    background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+  }
+}
+
+.live-fluctuation {
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: pulse-fluctuation 2s ease-in-out infinite;
+  
+  &.positive {
+    color: #10b981;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+  
+  &.negative {
+    color: #ef4444;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+  }
+  
+  &.neutral {
+    color: #b0b0b0;
+    text-shadow: 0 0 8px rgba(176, 176, 176, 0.3);
+  }
+}
+
+.error-message {
+  text-align: center;
+  padding: 24px;
+  color: #b0b0b0;
+  position: relative;
+  z-index: 2;
+  
+  p {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  button {
+    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 193, 28, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, #ffc01c 0%, #ffe150 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 193, 28, 0.4);
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes shimmer-border {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-fluctuation {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .crypto-prices {
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .prices-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .prices-header h3 {
+    font-size: 20px;
+  }
+  
+  .price-card {
+    padding: 14px;
+  }
+  
+  .coin-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .coin-symbol {
+    font-size: 15px;
+  }
+  
+  .coin-name {
+    font-size: 11px;
+  }
+  
+  .current-price {
+    font-size: 15px;
+  }
+  
+  .price-change {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  
+  .live-fluctuation {
+    font-size: 12px;
+  }
+}

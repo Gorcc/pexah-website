@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import CryptoPrices from './crypto-prices'
 import './hero.scss'
 
 const Hero = () => {
@@ -9,7 +10,7 @@ const Hero = () => {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLButtonElement>(null)
-  const tradingRef = useRef<HTMLDivElement>(null)
+  const cryptoPricesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -19,7 +20,7 @@ const Hero = () => {
         y: 50
       })
       
-      gsap.set(tradingRef.current, {
+      gsap.set(cryptoPricesRef.current, {
         opacity: 0,
         x: 100,
         scale: 0.9
@@ -52,8 +53,8 @@ const Hero = () => {
         ease: "back.out(1.7)"
       }, "-=0.4")
 
-      // Animate trading interface
-      .to(tradingRef.current, {
+      // Animate crypto prices
+      .to(cryptoPricesRef.current, {
         opacity: 1,
         x: 0,
         scale: 1,
@@ -89,44 +90,8 @@ const Hero = () => {
         </div>
         
         <div className="hero-right">
-          <div className="trading-interface" ref={tradingRef}>
-            <div className="interface-header">
-              <div className="interface-logo">
-                <span className="logo-icon">⟨⟩</span>
-                <span className="interface-title">Spot trading</span>
-              </div>
-            </div>
-            
-            <div className="trading-form">
-              <div className="form-section">
-                <label>You give</label>
-                <div className="input-group">
-                  <span className="amount">1</span>
-                  <div className="currency">
-                    <span className="currency-icon">₿</span>
-                    <span>BTC</span>
-                  </div>
-                </div>
-                <div className="amount-usd">≈ $111,647</div>
-              </div>
-              
-              <div className="form-section">
-                <label>You get</label>
-                <div className="input-group">
-                  <span className="amount">110,977.19</span>
-                  <div className="currency">
-                    <span className="currency-icon">$</span>
-                    <span>USD</span>
-                  </div>
-                </div>
-                <div className="amount-usd">≈ $110,977.19</div>
-              </div>
-              
-              <div className="price-info">
-                <span>Price</span>
-                <span>1 BTC ≈ 110,977.19 USD</span>
-              </div>
-            </div>
+          <div ref={cryptoPricesRef}>
+            <CryptoPrices />
           </div>
         </div>
       </div>
