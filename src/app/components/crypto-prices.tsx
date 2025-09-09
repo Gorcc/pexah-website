@@ -38,7 +38,14 @@ const CryptoPrices = () => {
         const data = await response.json()
         
         // Add display_price and fluctuation properties
-        const enhancedData = data.map((coin: any) => ({
+        const enhancedData = data.map((coin: {
+          id: string
+          symbol: string
+          name: string
+          current_price: number
+          price_change_percentage_24h: number
+          image: string
+        }) => ({
           ...coin,
           display_price: coin.current_price,
           fluctuation: 0
