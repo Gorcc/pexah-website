@@ -1,12 +1,23 @@
-import React from 'react'
-import { User } from 'lucide-react'
+"use client"
+
+import React, { useState } from 'react'
+import { User, Menu, X } from 'lucide-react'
 import "./header.scss"
 
-const header = () => {
+const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
     <div className='header-container'>
         <div className="header-left logo">Pexah</div>
-        <div className="header-right">
+        <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        <div className={`header-right ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
             <a href="" className='header-right-item dropdown'>Who we serve <span className="dropdown-icon">▼</span></a>
             <a href="" className='header-right-item dropdown'>Guide <span className="dropdown-icon">▼</span></a>
             <a href="" className='header-right-item'>Integrate</a>
@@ -22,4 +33,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header
