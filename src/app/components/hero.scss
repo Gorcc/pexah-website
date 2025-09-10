@@ -39,9 +39,10 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 120px 40px 80px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
+  gap: 60px;
   min-height: 100vh;
   position: relative;
   z-index: 2;
@@ -49,8 +50,9 @@
 
 
 .hero-left {
-  flex: 1;
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-content {
@@ -60,29 +62,27 @@
 .hero-title {
   font-size: 64px;
   font-weight: 700;
-  line-height: 1.1;
   margin-bottom: 32px;
   text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
   
-  .highlight {
-    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+  .title-line {
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    
+    &:last-child {
+      margin-bottom: 0; // Remove margin from last line
+    }
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #ff8c00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 20px rgba(255, 193, 28, 0.3);
-    position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #ffe150 0%, #ffc01c 100%);
-      border-radius: 1px;
-      opacity: 0.6;
-    }
+    color: #ff8c00; /* Fallback for browsers that don't support background-clip */
   }
 }
 
@@ -149,10 +149,9 @@
 }
 
 .hero-right {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
-  max-width: 500px;
+  justify-content: center;
+  align-items: center;
 }
 
 .trading-interface {
@@ -264,7 +263,7 @@
 // Responsive design
 @media (max-width: 1024px) {
   .hero-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 60px;
     text-align: center;
   }

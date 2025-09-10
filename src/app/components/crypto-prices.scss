@@ -2,9 +2,10 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 28px;
+  padding: 16px;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
+ 
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 193, 28, 0.1),
@@ -31,6 +32,48 @@
   text-align: center;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .live-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 12px;
+  }
+  
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-live 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  }
+  
+  .live-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+  
+  .header-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
   
   h3 {
     font-size: 22px;
@@ -39,7 +82,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin: 0 0 8px 0;
+    margin: 0;
     text-shadow: 0 0 20px rgba(255, 193, 28, 0.3);
   }
   
@@ -155,7 +198,7 @@
 }
 
 .coin-name {
-  font-size: 12px;
+  font-size: 10px;
   color: #b0b0b0;
   font-weight: 500;
   
@@ -185,7 +228,7 @@
 }
 
 .current-price {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 193, 28, 0.3);
@@ -339,6 +382,19 @@
   }
 }
 
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.8);
+  }
+}
+
 // Responsive design
 @media (max-width: 768px) {
   .crypto-prices {
@@ -351,8 +407,28 @@
     gap: 12px;
   }
   
-  .prices-header h3 {
-    font-size: 20px;
+  .prices-header {
+    .header-title-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    h3 {
+      font-size: 20px;
+    }
+    
+    .live-indicator {
+      padding: 3px 10px;
+    }
+    
+    .live-dot {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .live-text {
+      font-size: 10px;
+    }
   }
   
   .price-card {

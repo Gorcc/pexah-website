@@ -1,0 +1,278 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@/lib/utils";
+import { Marquee } from "@/components/magicui/marquee";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const testimonials = [
+  {
+    name: "Michael Chen",
+    username: "@mchen_trader",
+    body: "Executed a $2M BTC trade with zero slippage. Their OTC desk is unmatched for institutional volumes.",
+    img: "https://avatar.vercel.sh/michael",
+    role: "Fund Manager",
+  },
+  {
+    name: "Sarah Williams",
+    username: "@swilliams_crypto",
+    body: "Best rates in the market for large ETH trades. Settlement was completed in under 2 hours.",
+    img: "https://avatar.vercel.sh/sarah",
+    role: "Crypto Investor",
+  },
+  {
+    name: "David Rodriguez",
+    username: "@drodriguez_btc",
+    body: "Professional service with dedicated account manager. Perfect for our corporate treasury needs.",
+    img: "https://avatar.vercel.sh/david",
+    role: "Treasury Manager",
+  },
+  {
+    name: "Emily Johnson",
+    username: "@ejohnson_defi",
+    body: "Saved 40% on fees compared to traditional exchanges. Their P2P platform is incredibly efficient.",
+    img: "https://avatar.vercel.sh/emily",
+    role: "DeFi Strategist",
+  },
+  {
+    name: "Alex Thompson",
+    username: "@athompson_whale",
+    body: "Seamless $5M USDC trade execution. No market impact and competitive pricing throughout.",
+    img: "https://avatar.vercel.sh/alex",
+    role: "Whale Trader",
+  },
+  {
+    name: "Lisa Martinez",
+    username: "@lmartinez_hedge",
+    body: "Their escrow service provided complete peace of mind. Transparent process from start to finish.",
+    img: "https://avatar.vercel.sh/lisa",
+    role: "Hedge Fund Partner",
+  },
+  {
+    name: "James Park",
+    username: "@jpark_institutional",
+    body: "Lightning fast settlement and 24/7 support. Best OTC experience I've had in 5 years of trading.",
+    img: "https://avatar.vercel.sh/james",
+    role: "Institutional Trader",
+  },
+  {
+    name: "Anna Kowalski",
+    username: "@akowalski_capital",
+    body: "Exceptional liquidity for altcoin trades. Their network of counterparties is impressive.",
+    img: "https://avatar.vercel.sh/anna",
+    role: "Capital Allocator",
+  },
+];
+
+const firstRow = testimonials.slice(0, testimonials.length / 2);
+const secondRow = testimonials.slice(testimonials.length / 2);
+
+const TestimonialCard = ({
+  img,
+  name,
+  username,
+  body,
+  role,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+  role: string;
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative h-full w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
+        "border-gray-700 bg-gray-800/50 hover:bg-gray-800/80 backdrop-blur-sm",
+        "transition-all duration-300 hover:border-yellow-400/30 hover:shadow-lg",
+        "hover:shadow-yellow-400/10"
+      )}
+    >
+      <div className="flex flex-row items-center gap-3 mb-4">
+        <Image 
+          className="rounded-full border-2 border-yellow-400/20" 
+          width={40} 
+          height={40} 
+          alt="" 
+          src={img} 
+        />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-semibold text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs text-yellow-400 font-medium">{role}</p>
+          <p className="text-xs text-gray-400">{username}</p>
+        </div>
+      </div>
+      <blockquote className="text-sm text-gray-300 leading-relaxed">
+        &ldquo;{body}&rdquo;
+      </blockquote>
+    </figure>
+  );
+};
+
+export function TestimonialsMarquee() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate title
+      gsap.fromTo(titleRef.current, 
+        { 
+          opacity: 0, 
+          y: 30 
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Animate description
+      gsap.fromTo(descriptionRef.current, 
+        { 
+          opacity: 0, 
+          y: 20 
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: descriptionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Animate marquee container
+      gsap.fromTo(marqueeRef.current, 
+        { 
+          opacity: 0, 
+          y: 40 
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: 0.4,
+          scrollTrigger: {
+            trigger: marqueeRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Animate stats with stagger
+      gsap.fromTo(".stat-item", 
+        { 
+          opacity: 0, 
+          y: 30,
+          scale: 0.9
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="testimonials-marquee-section" style={{ backgroundColor: '#131316' }}>
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h2 
+            ref={titleRef}
+            className="text-4xl font-bold mb-4"
+            style={{
+              background: 'linear-gradient(135deg, #ffffff 0%, #c08415 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            Trusted by Professional Traders
+          </h2>
+          <p ref={descriptionRef} className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Join thousands of institutional investors and professional traders who trust our OTC platform
+          </p>
+        </div>
+        
+        <div ref={marqueeRef} className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+          <Marquee pauseOnHover className="[--duration:25s] py-4">
+            {firstRow.map((testimonial) => (
+              <TestimonialCard key={testimonial.username} {...testimonial} />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:25s] py-4">
+            {secondRow.map((testimonial) => (
+              <TestimonialCard key={testimonial.username} {...testimonial} />
+            ))}
+          </Marquee>
+          <div 
+            className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"
+            style={{ background: 'linear-gradient(to right, #131316, transparent)' }}
+          ></div>
+          <div 
+            className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"
+            style={{ background: 'linear-gradient(to left, #131316, transparent)' }}
+          ></div>
+        </div>
+
+        <div ref={statsRef} className="text-center mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="stat-item text-center">
+              <div className="text-3xl font-bold text-yellow-400 mb-2">$2.5B+</div>
+              <div className="text-gray-400 text-sm">Total Volume Traded</div>
+            </div>
+            <div className="stat-item text-center">
+              <div className="text-3xl font-bold text-yellow-400 mb-2">15,000+</div>
+              <div className="text-gray-400 text-sm">Successful Trades</div>
+            </div>
+            <div className="stat-item text-center">
+              <div className="text-3xl font-bold text-yellow-400 mb-2">99.8%</div>
+              <div className="text-gray-400 text-sm">Client Satisfaction</div>
+            </div>
+            <div className="stat-item text-center">
+              <div className="text-3xl font-bold text-yellow-400 mb-2">24/7</div>
+              <div className="text-gray-400 text-sm">Support Available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

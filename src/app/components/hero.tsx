@@ -73,9 +73,9 @@ const Hero = () => {
         <div className="hero-left">
           <div className="hero-content">
             <h1 className="hero-title" ref={titleRef}>
-              Power your <span className="highlight">growth</span><br />
-              with seamless<br />
-              digital asset <span className="highlight">liquidity</span>
+              <span className="title-line">Power your <span className="gradient-text">growth</span></span>
+              <span className="title-line">with <span className="gradient-text">seamless</span></span>
+              <span className="title-line">digital <span className="gradient-text">asset </span> <span className="gradient-text">liquidity</span></span>
             </h1>
             <p className="hero-description" ref={descriptionRef}>
               One gateway - endless possibilities: maximise treasury efficiency 
