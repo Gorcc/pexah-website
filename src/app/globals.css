@@ -64,6 +64,11 @@
   }
 }
 
+:root {
+  --animate-marquee: marquee 40s infinite linear;
+  --animate-marquee-vertical: marquee-vertical 40s linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -79,21 +84,41 @@
   }
 }
 
-@theme inline {
-  @keyframes marquee {
+@keyframes marquee {
   from {
     transform: translateX(0);
-    }
+  }
   to {
     transform: translateX(calc(-100% - var(--gap)));
-    }
   }
-  @keyframes marquee-vertical {
+}
+
+@keyframes marquee-vertical {
   from {
     transform: translateY(0);
-    }
+  }
   to {
     transform: translateY(calc(-100% - var(--gap)));
-    }
+  }
+}
+
+.animate-marquee {
+  animation: var(--animate-marquee);
+  animation: marquee 40s infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: var(--animate-marquee-vertical);
+  animation: marquee-vertical 40s linear infinite;
+}
+
+/* Fallback for browsers that don't support CSS variables */
+@supports not (--css: variables) {
+  .animate-marquee {
+    animation: marquee 40s infinite linear;
+  }
+  
+  .animate-marquee-vertical {
+    animation: marquee-vertical 40s linear infinite;
   }
 }

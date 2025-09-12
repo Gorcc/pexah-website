@@ -11,60 +11,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    username: "@mchen_trader",
+    name: "Ahmed Al-Rashid",
     body: "Fast and reliable P2P trade. Exactly what I needed.",
-    img: "https://avatar.vercel.sh/michael",
-    role: "Software Engineer",
+    img: "https://avatar.vercel.sh/ahmed",
   },
   {
-    name: "Sarah Williams",
-    username: "@swilliams_crypto",
+    name: "Fatima Al-Zahra",
     body: "The fastest team in P2P. Smooth from start to finish.",
-    img: "https://avatar.vercel.sh/sarah",
-    role: "Doctor",
+    img: "https://avatar.vercel.sh/fatima",
   },
   {
-    name: "David Rodriguez",
-    username: "@drodriguez_btc",
+    name: "Dmitri Volkov",
     body: "PEXAH is a truly high‑quality organization. Professional and helpful.",
-    img: "https://avatar.vercel.sh/david",
-    role: "Small Business Owner",
+    img: "https://avatar.vercel.sh/dmitri",
   },
   {
-    name: "Emily Johnson",
-    username: "@ejohnson_defi",
+    name: "Omar Hassan",
     body: "Very trustworthy since they operate through global exchanges.",
-    img: "https://avatar.vercel.sh/emily",
-    role: "Teacher",
+    img: "https://avatar.vercel.sh/omar",
   },
   {
-    name: "Alex Thompson",
-    username: "@athompson_whale",
+    name: "Aisha Al-Mansouri",
     body: "Clear communication and quick settlement on P2P.",
-    img: "https://avatar.vercel.sh/alex",
-    role: "Fitness Instructor",
+    img: "https://avatar.vercel.sh/aisha",
   },
   {
-    name: "Lisa Martinez",
-    username: "@lmartinez_hedge",
+    name: "Ivan Petrov",
     body: "Escrow-backed process gave me full peace of mind.",
-    img: "https://avatar.vercel.sh/lisa",
-    role: "Entrepreneur",
+    img: "https://avatar.vercel.sh/ivan",
   },
   {
-    name: "James Park",
-    username: "@jpark_institutional",
+    name: "Khalid Al-Najjar",
     body: "Responsive support and seamless P2P experience.",
-    img: "https://avatar.vercel.sh/james",
-    role: "Accountant",
+    img: "https://avatar.vercel.sh/khalid",
   },
   {
-    name: "Anna Kowalski",
-    username: "@akowalski_capital",
+    name: "Layla Al-Sabah",
     body: "Reliable P2P trades with transparent steps.",
-    img: "https://avatar.vercel.sh/anna",
-    role: "Freelancer",
+    img: "https://avatar.vercel.sh/layla",
   },
 ];
 
@@ -74,15 +58,11 @@ const secondRow = testimonials.slice(testimonials.length / 2);
 const TestimonialCard = ({
   img,
   name,
-  username,
   body,
-  role,
 }: {
   img: string;
   name: string;
-  username: string;
   body: string;
-  role: string;
 }) => {
   return (
     <figure
@@ -105,8 +85,6 @@ const TestimonialCard = ({
           <figcaption className="text-sm font-semibold text-white">
             {name}
           </figcaption>
-          <p className="text-xs text-yellow-400 font-medium">{role}</p>
-          <p className="text-xs text-gray-400">{username}</p>
         </div>
       </div>
       <blockquote className="text-sm text-gray-300 leading-relaxed">
@@ -233,13 +211,13 @@ export function TestimonialsMarquee() {
         
         <div ref={marqueeRef} className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
           <Marquee pauseOnHover className="[--duration:25s] py-4">
-            {firstRow.map((testimonial) => (
-              <TestimonialCard key={testimonial.username} {...testimonial} />
+            {firstRow.map((testimonial, index) => (
+              <TestimonialCard key={`first-${index}`} {...testimonial} />
             ))}
           </Marquee>
           <Marquee reverse pauseOnHover className="[--duration:25s] py-4">
-            {secondRow.map((testimonial) => (
-              <TestimonialCard key={testimonial.username} {...testimonial} />
+            {secondRow.map((testimonial, index) => (
+              <TestimonialCard key={`second-${index}`} {...testimonial} />
             ))}
           </Marquee>
           <div 

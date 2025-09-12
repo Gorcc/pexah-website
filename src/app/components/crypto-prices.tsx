@@ -38,12 +38,9 @@ const CryptoPrices = () => {
 
         const data = await response.json();
 
-        // Filter out stablecoins and staked tokens to make room for more interesting cryptocurrencies
+        // Filter out stETH to make room for other cryptocurrencies
         const filteredData = data.filter((coin: { symbol: string }) => 
-          coin.symbol.toLowerCase() !== 'usdt' && 
-          coin.symbol.toLowerCase() !== 'usdc' &&
-          coin.symbol.toLowerCase() !== 'steth' &&
-          coin.symbol.toLowerCase() !== 'doge'
+          coin.symbol.toLowerCase() !== 'steth'
         );
 
         const enhancedData = filteredData.map(

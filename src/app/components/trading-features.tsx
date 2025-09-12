@@ -145,9 +145,9 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Building2 className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">For Individuals & Businesses</h3>
+            <h3 className="feature-title">For All Users</h3>
             <p className="feature-description">
-              Official merchant on global exchanges with dedicated support for both individuals and B2B needs.
+              Official merchant on global exchanges with dedicated support for all P2P trading needs.
             </p>
             <div className="feature-benefits">
               <div className="benefit">✓ Official merchant status</div>
