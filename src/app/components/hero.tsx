@@ -73,17 +73,13 @@ const Hero = () => {
         <div className="hero-left">
           <div className="hero-content">
             <h1 className="hero-title" ref={titleRef}>
-              <span className="title-line">Power your <span className="gradient-text">growth</span></span>
-              <span className="title-line">with <span className="gradient-text">seamless</span></span>
-              <span className="title-line">digital <span className="gradient-text">asset </span> <span className="gradient-text">liquidity</span></span>
+              <span className="title-line">Your <span className="gradient-text">trusted</span> partner in <span className="gradient-text">crypto</span> P2P <span className="gradient-text">transactions</span></span>
             </h1>
             <p className="hero-description" ref={descriptionRef}>
-              One gateway - endless possibilities: maximise treasury efficiency 
-              with competitive rates, rapid settlements, and instant issue 
-              resolution
+              PEXAH offers fast, secure, and transparent solutions for your crypto P2P buy-sell transactions via global exchanges.
             </p>
             <button className="hero-cta" ref={ctaRef}>
-              Get started
+              Contact us
               <span className="arrow">→</span>
             </button>
           </div>

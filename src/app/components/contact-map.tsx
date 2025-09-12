@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from "lucide-react";
 import "./contact-map.scss";
 
 const ContactMap = () => {
@@ -10,7 +10,9 @@ const ContactMap = () => {
     address: "Dubai International Financial Centre, Gate Village 10, Level 2, Dubai, UAE",
     phone: "+971 4 123 4567",
     email: "dubai@pexah.com",
-    hours: "9:00 AM - 6:00 PM GST"
+    hours: "9:00 AM - 6:00 PM GST",
+    whatsapp: "+971 4 123 4567",
+    telegram: "@pexah_support"
   };
 
   return (
@@ -47,6 +49,27 @@ const ContactMap = () => {
                   <Clock className="detail-icon" />
                   <span className="detail-text">{office.hours}</span>
                 </div>
+              </div>
+              
+              <div className="social-buttons">
+                <a 
+                  href={`https://wa.me/${office.whatsapp.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn whatsapp"
+                >
+                  <MessageCircle className="btn-icon" />
+                  WhatsApp
+                </a>
+                <a 
+                  href={`https://t.me/${office.telegram.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn telegram"
+                >
+                  <Send className="btn-icon" />
+                  Telegram
+                </a>
               </div>
             </div>
           </div>

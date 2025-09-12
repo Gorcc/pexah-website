@@ -86,49 +86,27 @@ const TradingFeatures = () => {
       <div className="trading-features-container">
         <div className="features-header">
           <h2 ref={titleRef} className="features-title">
-            Low Commission Rates & B2B Trading
+            Our P2P Trading Features
           </h2>
           <p ref={subtitleRef} className="features-subtitle">
-            Maximize your profits with industry-leading rates and institutional-grade trading solutions
+            Discover the key features that make PEXAH the trusted choice for secure P2P cryptocurrency trading
           </p>
         </div>
 
         <div ref={gridRef} className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">
-              <Percent className="feature-icon-svg" />
+              <Shield className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Ultra-Low Fees</h3>
+            <h3 className="feature-title">Escrow‑Protected Security</h3>
             <p className="feature-description">
-              Starting from just 0.1% commission rates for high-volume traders. 
-              The more you trade, the less you pay.
-            </p>
-            <div className="feature-stats">
-              <div className="stat">
-                <span className="stat-number">0.1%</span>
-                <span className="stat-label">Starting Rate</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">50%</span>
-                <span className="stat-label">Savings vs Competitors</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">
-              <Building2 className="feature-icon-svg" />
-            </div>
-            <h3 className="feature-title">B2B Trading Solutions</h3>
-            <p className="feature-description">
-              Tailored trading infrastructure for businesses, institutions, 
-              and professional traders with dedicated support.
+              Trades are protected by the exchanges&apos; official escrow and verified with KYC for maximum safety.
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Dedicated Account Manager</div>
-              <div className="benefit">✓ Custom API Integration</div>
-              <div className="benefit">✓ White-label Solutions</div>
-              <div className="benefit">✓ 24/7 Priority Support</div>
+              <div className="benefit">✓ Exchange escrow protection</div>
+              <div className="benefit">✓ KYC compliance</div>
+              <div className="benefit">✓ Fraud prevention</div>
+              <div className="benefit">✓ Clear dispute resolution</div>
             </div>
           </div>
 
@@ -136,37 +114,46 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Zap className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Lightning Fast Execution</h3>
+            <h3 className="feature-title">Fast Settlement</h3>
             <p className="feature-description">
-              Execute trades in milliseconds with our advanced matching engine 
-              and global liquidity network.
+              After you complete payment, P2P trades are typically finalized within minutes.
             </p>
-            <div className="feature-stats">
-              <div className="stat">
-                <span className="stat-number">&lt;10ms</span>
-                <span className="stat-label">Execution Time</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">99.9%</span>
-                <span className="stat-label">Uptime</span>
-              </div>
+            <div className="feature-benefits">
+              <div className="benefit">✓ Settlement in minutes</div>
+              <div className="benefit">✓ 24/7 availability</div>
+              <div className="benefit">✓ Clear step‑by‑step flow</div>
             </div>
           </div>
 
           <div className="feature-card">
             <div className="feature-icon">
-              <Shield className="feature-icon-svg" />
+              <Percent className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Enterprise Security</h3>
+            <h3 className="feature-title">Transparent Pricing</h3>
             <p className="feature-description">
-              Bank-grade security with multi-signature wallets, cold storage, 
-              and comprehensive insurance coverage.
+              Fees and rates are shared upfront before every trade — no surprises, no hidden costs.
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Multi-Signature Wallets</div>
-              <div className="benefit">✓ Cold Storage Protection</div>
-              <div className="benefit">✓ Insurance Coverage</div>
-              <div className="benefit">✓ Regular Security Audits</div>
+              <div className="benefit">✓ Fixed quote before trade</div>
+              <div className="benefit">✓ No hidden fees</div>
+              <div className="benefit">✓ Market‑aligned pricing</div>
+              <div className="benefit">✓ Clear proof of payment</div>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">
+              <Building2 className="feature-icon-svg" />
+            </div>
+            <h3 className="feature-title">For Individuals & Businesses</h3>
+            <p className="feature-description">
+              Official merchant on global exchanges with dedicated support for both individuals and B2B needs.
+            </p>
+            <div className="feature-benefits">
+              <div className="benefit">✓ Official merchant status</div>
+              <div className="benefit">✓ Dedicated support</div>
+              <div className="benefit">✓ Multi‑exchange coverage</div>
+              <div className="benefit">✓ Clear, step‑by‑step process</div>
             </div>
           </div>
         </div>

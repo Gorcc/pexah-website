@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react";
-import { TrendingUpIcon, ClockIcon, InfinityIcon, CheckCircleIcon } from "lucide-react";
+import { TrendingUpIcon, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,15 +14,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    name: "Competitive rates",
-    description: "Due to liquidity aggregation from 10+ sources such as OTC LPs, European & US centralized exchanges",
+    name: "Trusted P2P via Global Exchanges",
+    description: "Escrow‑protected trades with exchange‑level KYC for secure, direct P2P buy/sell.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2 row-span-3",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
         <Image 
-          src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
           alt="Cryptocurrency trading"
           fill
           className="object-cover opacity-25"
@@ -37,15 +37,15 @@ const features = [
     ),
   },
   {
-    name: "24/7 automated settlement",
-    description: "Instant settlements with a flexible minimum amount and a wide range of banking partners",
+    name: "Fast settlement in minutes",
+    description: "After payment is confirmed, most P2P trades complete within minutes — available 24/7.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
         <Image 
-          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
+          src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
           alt="24/7 Trading"
           fill
           className="object-cover opacity-25"
@@ -60,15 +60,15 @@ const features = [
     ),
   },
   {
-    name: "Efficient Capital Utilization",
-    description: "With FinchTrade, pre-funding is not required, allowing you to retain full control of your funds without the need to store them on exchanges (e.g., send us EUR to trade ETH/BTC directly).",
+    name: "Transparent pricing",
+    description: "Clear quotes before every trade. No hidden fees and a simple, step‑by‑step flow.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
         <Image 
-          src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
           alt="Capital Efficiency"
           fill
           className="object-cover opacity-25"
@@ -83,15 +83,15 @@ const features = [
     ),
   },
   {
-    name: "Compliant & transparent",
-    description: "In accordance with Swiss and EU regulation, we employ advanced AML monitoring tools to ensure compliant trading and settlement.",
+    name: "Official merchant & compliance",
+    description: "Operate as an official merchant on global exchanges with escrow and AML/KYC safeguards.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
         <Image 
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
+          src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1000&h=600&fit=crop&crop=center&q=80&auto=format&fm=jpg"
           alt="Compliance and Security"
           fill
           className="object-cover opacity-25"
@@ -162,7 +162,7 @@ export function CryptoBentoGrid() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="w-full py-14" style={{ backgroundColor: '#131316' }}>
+    <div ref={sectionRef} className="w-full py-14" style={{ backgroundColor: 'var(--site-bg)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-10 text-center">
           <h2 
@@ -175,7 +175,7 @@ export function CryptoBentoGrid() {
               backgroundClip: 'text'
             }}
           >
-            Better liquidity and lower risks
+            Simple and Secure P2P Trading via Global Exchanges
           </h2>
         </div>
         <div ref={gridRef}>

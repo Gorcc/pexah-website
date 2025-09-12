@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Users, Target, Award, Globe, Shield, TrendingUp } from "lucide-react";
+import Image from "next/image";
+import { Users, Target, Award, Shield, Clock, Eye } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./about-us.scss";
@@ -13,37 +14,37 @@ const AboutUs = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
+  // Removed stats panel; using media on the right side instead
   const valuesRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
 
-  const stats = [
-    { number: "2019", label: "Founded" },
-    { number: "50+", label: "Team Members" },
-    { number: "100+", label: "Countries Served" },
-    { number: "$5B+", label: "Volume Traded" },
-  ];
+  // Stats removed per design update
 
   const values = [
     {
       icon: Shield,
-      title: "Security First",
-      description: "Bank-grade security with multi-signature wallets and comprehensive insurance coverage for all trades."
+      title: "Reliability",
+      description: "All transactions are transparent, clear, and recorded."
+    },
+    {
+      icon: Clock,
+      title: "Speed",
+      description: "Users can finalize their transactions within minutes."
+    },
+    {
+      icon: Eye,
+      title: "Transparency",
+      description: "Fees and rates are clearly shared before the transaction."
     },
     {
       icon: Users,
-      title: "Client-Focused",
-      description: "Dedicated account managers and 24/7 support ensure every client receives personalized attention."
+      title: "Customer Focus",
+      description: "We provide solutions tailored to each individual's needs."
     },
     {
-      icon: TrendingUp,
-      title: "Market Leading",
-      description: "Competitive rates, deep liquidity, and innovative trading solutions that set industry standards."
-    },
-    {
-      icon: Globe,
-      title: "Global Reach",
-      description: "Operating across 100+ countries with local expertise and regulatory compliance worldwide."
+      icon: Award,
+      title: "Professionalism",
+      description: "Our experienced team aims to deliver the best service."
     },
   ];
 
@@ -107,27 +108,7 @@ const AboutUs = () => {
         }
       );
 
-      // Animate stats with stagger
-      gsap.fromTo(".stat-item", 
-        { 
-          opacity: 0, 
-          y: 30,
-          scale: 0.9
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
+      // Stats animation removed
 
       // Animate values with stagger
       gsap.fromTo(".value-card", 
@@ -181,35 +162,33 @@ const AboutUs = () => {
     <section ref={sectionRef} className="about-us">
       <div className="about-us-container">
         <div className="about-header">
-          <h2 ref={titleRef} className="about-title">About Pexah</h2>
+          <h2 ref={titleRef} className="about-title">About Us</h2>
           <p ref={subtitleRef} className="about-subtitle">
-            Leading the future of institutional cryptocurrency trading
+            PEXAH is a Ras Al Khaimah–based crypto P2P transaction provider.
           </p>
         </div>
 
         <div className="about-content">
           <div ref={storyRef} className="about-story">
             <div className="story-text story-content">
-              <h3 className="story-title">Our Story</h3>
+              <h3 className="story-title">About Us</h3>
               <p className="story-description">
-                Founded in 2019 by a team of traditional finance and cryptocurrency experts, 
-                Pexah was born from the need for professional-grade OTC trading solutions. 
-                We recognized that institutional investors and high-volume traders needed a 
-                more sophisticated approach to cryptocurrency trading.
+                PEXAH is a crypto P2P transaction provider based in Ras Al Khaimah. Our primary goal is to enable individuals to buy and sell cryptocurrency through global exchanges in a secure, fast, and transparent way.
               </p>
               <p className="story-description">
-                Today, we&apos;re proud to be one of the leading P2P OTC trading platforms, 
-                facilitating billions in cryptocurrency transactions while maintaining the 
-                highest standards of security, compliance, and customer service.
+                As the crypto world grows, the greatest need has been trust. At PEXAH, we meet this need — offering our clients not only a trading platform but also a business partner they can rely on.
               </p>
             </div>
-            <div ref={statsRef} className="story-stats">
-              {stats.map((stat, index) => (
-                <div key={index} className="stat-item">
-                  <div className="stat-number">{stat.number}</div>
-                  <div className="stat-label">{stat.label}</div>
-                </div>
-              ))}
+            <div className="story-media">
+              <div style={{ width: '100%', height: 0, paddingBottom: '100%', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
+                <Image 
+                  src="https://videos.cults3d.com/e5n2i_-nni3JBm9LQJ3pLmrboGw=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/34450180/illustration-file/77cdcc74-8662-48c5-b1dd-7e48b372b4a8/bitcoin-video720px0001-0250-ezgif.com-optimize.gif" 
+                  alt="Bitcoin P2P trading animation" 
+                  fill 
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </div>
             </div>
           </div>
 
@@ -220,9 +199,7 @@ const AboutUs = () => {
               </div>
               <h3 className="mission-title">Our Mission</h3>
               <p className="mission-text">
-                To democratize access to institutional-grade cryptocurrency trading by 
-                providing secure, efficient, and transparent OTC trading solutions that 
-                bridge traditional finance with the digital asset ecosystem.
+                To be a bridge where individuals can trade with confidence in P2P trading — one of the strongest areas of digital finance.
               </p>
             </div>
 
@@ -232,9 +209,7 @@ const AboutUs = () => {
               </div>
               <h3 className="vision-title">Our Vision</h3>
               <p className="vision-text">
-                To become the global standard for P2P cryptocurrency trading, empowering 
-                institutions and professional traders with the tools and services they 
-                need to succeed in the digital asset economy.
+                To become the regional leader and a trusted global brand in crypto P2P transactions.
               </p>
             </div>
           </div>
@@ -254,29 +229,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div ref={teamRef} className="team-section">
-            <h3 className="team-title">Leadership Team</h3>
-            <p className="team-description">
-              Our leadership team brings together decades of experience from traditional 
-              finance, cryptocurrency, and technology sectors. With backgrounds from 
-              Goldman Sachs, JP Morgan, Coinbase, and leading fintech companies, we 
-              combine institutional expertise with innovative blockchain technology.
-            </p>
-            <div className="team-highlights">
-              <div className="highlight">
-                <span className="highlight-number">25+</span>
-                <span className="highlight-text">Years Average Experience</span>
-              </div>
-              <div className="highlight">
-                <span className="highlight-number">5</span>
-                <span className="highlight-text">Former Wall Street Executives</span>
-              </div>
-              <div className="highlight">
-                <span className="highlight-number">10+</span>
-                <span className="highlight-text">Blockchain Specialists</span>
-              </div>
-            </div>
-          </div>
+  
         </div>
       </div>
     </section>

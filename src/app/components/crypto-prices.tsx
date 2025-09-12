@@ -73,8 +73,8 @@ const CryptoPrices = () => {
 
     fetchPrices();
 
-    // Refresh prices every 30 seconds
-    const interval = setInterval(fetchPrices, 30000);
+
+    const interval = setInterval(fetchPrices, 1200000);
 
     return () => clearInterval(interval);
   }, []);
@@ -188,7 +188,7 @@ const CryptoPrices = () => {
         
       </div>
       <div className="prices-grid">
-        {prices.slice(0, 6).map((coin) => {
+        {prices.slice(0, 10).map((coin) => {
           const change = formatChange(coin.price_change_percentage_24h);
           const fluctuationColor = getFluctuationColor(coin.fluctuation);
           return (

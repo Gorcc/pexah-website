@@ -18,8 +18,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 32px;
 }
 
 .header-right {
@@ -177,5 +178,117 @@
   
   .logo {
     font-size: 28px;
+  }
+}
+
+.language-selector {
+  position: relative;
+  margin-left: 20px;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 193, 28, 0.15);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(255, 193, 28, 0.3);
+    background: linear-gradient(135deg, rgba(255, 193, 28, 0.1) 0%, rgba(255, 193, 28, 0.05) 100%);
+  }
+
+  .flag {
+    font-size: 16px;
+  }
+
+  .language-name {
+    font-size: 13px;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    color: #ffe150;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: linear-gradient(135deg, rgba(19, 19, 22, 0.95) 0%, rgba(19, 19, 22, 0.98) 100%);
+  border: 1px solid rgba(255, 193, 28, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 160px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+
+  &:hover {
+    background: rgba(255, 193, 28, 0.1);
+    color: #ffffff;
+  }
+
+  &.active {
+    background: rgba(255, 193, 28, 0.15);
+    color: #ffe150;
+  }
+
+  .flag {
+    font-size: 16px;
+  }
+
+  .language-name {
+    font-size: 13px;
+  }
+}
+
+// Mobile responsive for language selector
+@media (max-width: 768px) {
+  .language-selector {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .language-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .language-dropdown {
+    position: static;
+    margin-top: 12px;
+    width: 100%;
   }
 }

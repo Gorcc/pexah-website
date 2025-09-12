@@ -13,58 +13,58 @@ const testimonials = [
   {
     name: "Michael Chen",
     username: "@mchen_trader",
-    body: "Executed a $2M BTC trade with zero slippage. Their OTC desk is unmatched for institutional volumes.",
+    body: "Fast and reliable P2P trade. Exactly what I needed.",
     img: "https://avatar.vercel.sh/michael",
-    role: "Fund Manager",
+    role: "Software Engineer",
   },
   {
     name: "Sarah Williams",
     username: "@swilliams_crypto",
-    body: "Best rates in the market for large ETH trades. Settlement was completed in under 2 hours.",
+    body: "The fastest team in P2P. Smooth from start to finish.",
     img: "https://avatar.vercel.sh/sarah",
-    role: "Crypto Investor",
+    role: "Doctor",
   },
   {
     name: "David Rodriguez",
     username: "@drodriguez_btc",
-    body: "Professional service with dedicated account manager. Perfect for our corporate treasury needs.",
+    body: "PEXAH is a truly high‑quality organization. Professional and helpful.",
     img: "https://avatar.vercel.sh/david",
-    role: "Treasury Manager",
+    role: "Small Business Owner",
   },
   {
     name: "Emily Johnson",
     username: "@ejohnson_defi",
-    body: "Saved 40% on fees compared to traditional exchanges. Their P2P platform is incredibly efficient.",
+    body: "Very trustworthy since they operate through global exchanges.",
     img: "https://avatar.vercel.sh/emily",
-    role: "DeFi Strategist",
+    role: "Teacher",
   },
   {
     name: "Alex Thompson",
     username: "@athompson_whale",
-    body: "Seamless $5M USDC trade execution. No market impact and competitive pricing throughout.",
+    body: "Clear communication and quick settlement on P2P.",
     img: "https://avatar.vercel.sh/alex",
-    role: "Whale Trader",
+    role: "Fitness Instructor",
   },
   {
     name: "Lisa Martinez",
     username: "@lmartinez_hedge",
-    body: "Their escrow service provided complete peace of mind. Transparent process from start to finish.",
+    body: "Escrow-backed process gave me full peace of mind.",
     img: "https://avatar.vercel.sh/lisa",
-    role: "Hedge Fund Partner",
+    role: "Entrepreneur",
   },
   {
     name: "James Park",
     username: "@jpark_institutional",
-    body: "Lightning fast settlement and 24/7 support. Best OTC experience I've had in 5 years of trading.",
+    body: "Responsive support and seamless P2P experience.",
     img: "https://avatar.vercel.sh/james",
-    role: "Institutional Trader",
+    role: "Accountant",
   },
   {
     name: "Anna Kowalski",
     username: "@akowalski_capital",
-    body: "Exceptional liquidity for altcoin trades. Their network of counterparties is impressive.",
+    body: "Reliable P2P trades with transparent steps.",
     img: "https://avatar.vercel.sh/anna",
-    role: "Capital Allocator",
+    role: "Freelancer",
   },
 ];
 
@@ -211,7 +211,7 @@ export function TestimonialsMarquee() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="testimonials-marquee-section" style={{ backgroundColor: '#131316' }}>
+    <section ref={sectionRef} className="testimonials-marquee-section" style={{ backgroundColor: 'var(--site-bg)' }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           <h2 
@@ -244,15 +244,15 @@ export function TestimonialsMarquee() {
           </Marquee>
           <div 
             className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"
-            style={{ background: 'linear-gradient(to right, #131316, transparent)' }}
+            style={{ background: 'linear-gradient(to right, var(--site-bg), transparent)' }}
           ></div>
           <div 
             className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"
-            style={{ background: 'linear-gradient(to left, #131316, transparent)' }}
+            style={{ background: 'linear-gradient(to left, var(--site-bg), transparent)' }}
           ></div>
         </div>
 
-        <div ref={statsRef} className="text-center mt-12">
+        {/* <div ref={statsRef} className="text-center mt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="stat-item text-center">
               <div className="text-3xl font-bold text-yellow-400 mb-2">$2.5B+</div>
@@ -271,7 +271,7 @@ export function TestimonialsMarquee() {
               <div className="text-gray-400 text-sm">Support Available</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
