@@ -6,12 +6,12 @@ import "./contact-map.scss";
 
 const ContactMap = () => {
   const office = {
-    city: "Dubai",
-    address: "Dubai International Financial Centre, Gate Village 10, Level 2, Dubai, UAE",
-    phone: "+971 4 123 4567",
-    email: "dubai@pexah.com",
+    city: "Ras Al Khaimah",
+    address: "Office A, RAK DAO Business Centre, RAK BANK ROC Office, Ground Floor, Al Rifaa, Sheikh Mohammed Bin Zayed Road, Ras Al Khaimah, United Arab Emirates",
+    phone: "+971 52 394 1664",
+    email: "pexahuae@gmail.com",
     hours: "9:00 AM - 6:00 PM GST",
-    whatsapp: "+971 4 123 4567",
+    whatsapp: "+971 52 394 1664",
     telegram: "@pexah_support"
   };
 
@@ -79,20 +79,20 @@ const ContactMap = () => {
               <h3 className="map-section-title">Find Us on the Map</h3>
               <div className="google-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.7267096395327!2d55.14013531501085!3d25.21448598389057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d5c8a6f3a1%3A0x8b8f8c8c8c8c8c8c!2sDubai%20International%20Financial%20Centre!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.7267096395327!2d55.14013531501085!3d25.21448598389057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d5c8a6f3a1%3A0x8b8f8c8c8c8c8c8c!2sRAK%20DAO%20Business%20Centre!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae"
                   width="100%"
                   height="300"
                   style={{ border: 0, borderRadius: '12px' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Dubai Office Location"
+                  title="Ras Al Khaimah Office Location"
                 ></iframe>
               </div>
               <div className="map-info">
                 <div className="location-pin">
                   <div className="pin-dot"></div>
-                  <span className="pin-label">Dubai DIFC - Gate Village 10</span>
+                  <span className="pin-label">RAK DAO Business Centre - Al Rifaa</span>
                 </div>
               </div>
             </div>
@@ -106,11 +106,11 @@ const ContactMap = () => {
               Our trading desk is available 24/7 for urgent requests and large volume trades.
             </p>
             <div className="cta-buttons">
-              <a href="tel:+1-212-555-0123" className="cta-btn primary">
+              <a href="tel:+971523941664" className="cta-btn primary">
                 <Phone className="btn-icon" />
                 Call Trading Desk
               </a>
-              <a href="mailto:trading@pexah.com" className="cta-btn secondary">
+              <a href="mailto:pexahuae@gmail.com" className="cta-btn secondary">
                 <Mail className="btn-icon" />
                 Email Trading Team
               </a>
