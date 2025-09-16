@@ -160,18 +160,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 28px;
     z-index: 15;
+    padding: calc(env(safe-area-inset-top, 16px) + 16px) 16px 24px;
+    overflow-y: auto;
     
+    // Move language selector to the very top in mobile menu
+    .language-selector {
+      order: -1;
+      width: 90%;
+      max-width: 360px;
+    }
+
     .header-right-item {
-      font-size: 24px;
-      margin: 10px 0;
+      font-size: 20px;
+      margin: 6px 0;
     }
     
     .login-btn, .get-started-btn {
-      padding: 12px 24px;
-      font-size: 16px;
-      margin: 10px 0;
+      padding: 12px 20px;
+      font-size: 15px;
+      margin: 8px 0;
     }
   }
 }
@@ -179,6 +188,10 @@
 @media (max-width: 480px) {
   .header-container {
     padding: 12px 15px;
+  }
+  .header-right.mobile-open {
+    gap: 20px;
+    .language-selector { width: 100%; }
   }
   
   .logo {

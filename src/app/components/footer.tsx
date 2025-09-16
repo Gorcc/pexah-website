@@ -2,37 +2,64 @@
 import React from 'react'
 import Image from 'next/image'
 import { useI18n } from '@/app/i18n'
-import { Twitter, Linkedin, Github, Mail, Instagram, Facebook } from 'lucide-react'
+import { Linkedin, Instagram, Facebook } from 'lucide-react'
 
 const Footer = () => {
   const { t } = useI18n()
   return (
     <footer className="w-full border-t border-gray-800/60 bg-[#131316]">
       <div className="mx-auto w-full max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center">
               <Image src="/images/hazır-02.png" alt="PEXAH footer logo" width={120} height={34} />
             </div>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm leading-6 text-gray-300 max-w-md">
               {t.footer.tagline}
             </p>
-            <div className="flex items-center gap-3 text-gray-400">
-              <a href="#" aria-label="Twitter" className="hover:text-gray-200 transition-colors">
-                <Twitter size={18} />
+            <div className="flex items-center gap-5 text-gray-300">
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                title="X"
+                className="transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 rounded"
+              >
+                {/* X logo (inline SVG for crisp rendering) */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 3h4.6l5.1 6.9L16.9 3H21l-7.2 9.6L21 21h-4.6l-5.3-7.2L7.1 21H3l7.5-9.8L3 3z" fill="currentColor"/>
+                </svg>
               </a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-gray-200 transition-colors">
-                <Linkedin size={18} />
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+                className="transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 rounded"
+              >
+                <Linkedin size={22} strokeWidth={1.75} />
               </a>
-              <a href="#" aria-label="Instagram" className="hover:text-gray-200 transition-colors">
-                <Instagram size={18} />
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                className="transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 rounded"
+              >
+                <Instagram size={22} strokeWidth={1.75} />
               </a>
-              <a href="#" aria-label="Facebook" className="hover:text-gray-200 transition-colors">
-                <Facebook size={18} />
-              </a>
-          
-              <a href="mailto:hello@example.com" aria-label="Email" className="hover:text-gray-200 transition-colors">
-                <Mail size={18} />
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 rounded"
+              >
+                <Facebook size={22} strokeWidth={1.75} />
               </a>
             </div>
           </div>
@@ -40,40 +67,25 @@ const Footer = () => {
           <div>
             <h4 className="mb-4 text-sm font-semibold text-gray-200">Company</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-gray-200 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Contact</a></li>
+              <li><a href="#home" onClick={(e)=>{e.preventDefault();document.getElementById('home')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">Home</a></li>
+              <li><a href="#about" onClick={(e)=>{e.preventDefault();document.getElementById('about')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">About</a></li>
+              <li><a href="#service" onClick={(e)=>{e.preventDefault();document.getElementById('service')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">Services</a></li>
+              <li><a href="#why-us" onClick={(e)=>{e.preventDefault();document.getElementById('why-us')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">Why us?</a></li>
+              <li><a href="#faq" onClick={(e)=>{e.preventDefault();document.getElementById('faq')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">FAQ</a></li>
+              <li><a href="#contact" onClick={(e)=>{e.preventDefault();document.getElementById('contact')?.scrollIntoView({behavior:'smooth'});}} className="hover:text-gray-200 transition-colors">Contact</a></li>
             </ul>
           </div>
-
-          {/* Products column removed per request */}
 
           <div>
             <h4 className="mb-4 text-sm font-semibold text-gray-200">Support</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Security</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Status</a></li>
               <li><a href="/kyc-policy" className="hover:text-gray-200 transition-colors">KYC & AML Policy</a></li>
-              <li className="flex items-center gap-3">
-                <a href="#" className="hover:text-gray-200 transition-colors">Terms</a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="hover:text-gray-200 transition-colors">Privacy</a>
-              </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* <div className="border-t border-gray-800/60">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-6">
-          
-          <div className="text-xs text-gray-400">
-            {t.footer.developedBy} <span className="text-gray-200">Almego Studio</span>
-          </div>
-        </div>
-      </div> */}
+      <hr />
     </footer>
   )
 }
