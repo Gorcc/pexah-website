@@ -48,10 +48,10 @@ const ContactMap = () => {
                   <Mail className="detail-icon" />
                   <span className="detail-text">{office.email}</span>
                 </div>
-                <div className="office-detail">
+                {/* <div className="office-detail">
                   <Clock className="detail-icon" />
                   <span className="detail-text">{office.hours}</span>
-                </div>
+                </div> */}
               </div>
               
               <div className="social-buttons">

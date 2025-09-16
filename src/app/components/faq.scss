@@ -36,6 +36,11 @@
   list-style: none;
   color: #fff;
   font-weight: 600;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #1540ce;
+  }
 }
 
 .faq-answer {
