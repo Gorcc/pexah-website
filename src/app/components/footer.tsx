@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useI18n } from '@/app/i18n'
-import { Twitter, Linkedin, Github, Mail } from 'lucide-react'
+import { Twitter, Linkedin, Github, Mail, Instagram, Facebook } from 'lucide-react'
 
 const Footer = () => {
   const { t } = useI18n()
@@ -20,6 +20,15 @@ const Footer = () => {
             <div className="flex items-center gap-3 text-gray-400">
               <a href="#" aria-label="Twitter" className="hover:text-gray-200 transition-colors">
                 <Twitter size={18} />
+              </a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-gray-200 transition-colors">
+                <Linkedin size={18} />
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:text-gray-200 transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="#" aria-label="Facebook" className="hover:text-gray-200 transition-colors">
+                <Facebook size={18} />
               </a>
           
               <a href="mailto:hello@example.com" aria-label="Email" className="hover:text-gray-200 transition-colors">

@@ -47,8 +47,8 @@ const Header = () => {
           <Image
             src="/images/pexah-logo.png"
             alt="PEXAH logo"
-            width={200}
-            height={60}
+            width={240}
+            height={72}
             priority
             className="desktop-logo"
           />
@@ -71,6 +71,7 @@ const Header = () => {
             <button onClick={() => scrollToSection('service')} className='header-right-item'>{t.header.service}</button>
             <button onClick={() => scrollToSection('why-us')} className='header-right-item'>{t.header.whyUs}</button>
             <button onClick={() => scrollToSection('faq')} className='header-right-item'>{t.header.faq}</button>
+            <a href="/kyc-policy" className='header-right-item'>KYC/AML</a>
             <button onClick={() => scrollToSection('contact')} className='header-right-item'>{t.header.contact}</button>
             
             <div className="language-selector">
