@@ -21,33 +21,7 @@ const AboutUs = () => {
 
   // Stats removed per design update
 
-  const values = [
-    {
-      icon: Shield,
-      title: "Reliability",
-      description: "All transactions are transparent, clear, and recorded."
-    },
-    {
-      icon: Clock,
-      title: "Speed",
-      description: "Users can finalize their transactions within minutes."
-    },
-    {
-      icon: Eye,
-      title: "Transparency",
-      description: "Fees and rates are clearly shared before the transaction."
-    },
-    {
-      icon: Users,
-      title: "Customer Focus",
-      description: "We provide solutions tailored to each individual's needs."
-    },
-    {
-      icon: Award,
-      title: "Professionalism",
-      description: "Our experienced team aims to deliver the best service."
-    },
-  ];
+  // Values content now provided by i18n; icons are selected by index below
 
   useEffect(() => {
     const ctx = gsap.context(() => {

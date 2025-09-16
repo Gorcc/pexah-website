@@ -14,6 +14,30 @@ const Hero = () => {
   const cryptoPricesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const prefersReduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isSmallScreen = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
+
+    // On low-end/mobile or when user prefers reduced motion, render statically
+    if (prefersReduced || isSmallScreen) {
+      if (titleRef.current) {
+        titleRef.current.style.opacity = '1';
+        titleRef.current.style.transform = 'translateY(0)';
+      }
+      if (descriptionRef.current) {
+        descriptionRef.current.style.opacity = '1';
+        descriptionRef.current.style.transform = 'translateY(0)';
+      }
+      if (ctaRef.current) {
+        ctaRef.current.style.opacity = '1';
+        (ctaRef.current as HTMLElement).style.transform = 'translateY(0)';
+      }
+      if (cryptoPricesRef.current) {
+        cryptoPricesRef.current.style.opacity = '1';
+        cryptoPricesRef.current.style.transform = 'translateX(0) scale(1)';
+      }
+      return;
+    }
+
     const ctx = gsap.context(() => {
       // Set initial states
       gsap.set([titleRef.current, descriptionRef.current, ctaRef.current], {
@@ -81,7 +105,11 @@ const Hero = () => {
             <p className="hero-description" ref={descriptionRef}>
               {t.hero.description}
             </p>
-            <button className="hero-cta" ref={ctaRef}>
+            <button
+              className="hero-cta"
+              ref={ctaRef}
+              onClick={() => window.open("https://wa.me/971523941664", "_blank", "noopener,noreferrer")}
+            >
               {t.hero.cta}
               <span className="arrow">→</span>
             </button>

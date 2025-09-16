@@ -21,6 +21,7 @@ const CryptoPrices = () => {
   const [error, setError] = useState<string | null>(null);
   const [basePrices, setBasePrices] = useState<CryptoPrice[]>([]);
   const [itemsToShow, setItemsToShow] = useState<number>(10);
+  const [coinIds, setCoinIds] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -61,6 +62,7 @@ const CryptoPrices = () => {
 
         setBasePrices(enhancedData);
         setPrices(enhancedData);
+        setCoinIds(enhancedData.map((c: CryptoPrice) => c.id));
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
         console.error("Error fetching crypto prices:", err);
@@ -71,11 +73,57 @@ const CryptoPrices = () => {
 
     fetchPrices();
 
-
     const interval = setInterval(fetchPrices, 1200000);
 
     return () => clearInterval(interval);
   }, []);
+
+  // Lightweight refresh: only fetch latest prices/24h change without images/metadata
+  useEffect(() => {
+    if (coinIds.length === 0) return;
+
+    const refresh = async () => {
+      try {
+        const ids = coinIds.join(",");
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        // Update basePrices with fresh numbers
+        setBasePrices((prev) =>
+          prev.map((coin) => {
+            const rec = data[coin.id];
+            if (!rec) return coin;
+            return {
+              ...coin,
+              current_price: rec.usd,
+              price_change_percentage_24h: rec.usd_24h_change ?? coin.price_change_percentage_24h,
+            };
+          })
+        );
+
+        // Also sync visible prices immediately
+        setPrices((prev) =>
+          prev.map((coin) => {
+            const rec = data[coin.id];
+            if (!rec) return coin;
+            return {
+              ...coin,
+              display_price: rec.usd,
+              price_change_percentage_24h: rec.usd_24h_change ?? coin.price_change_percentage_24h,
+            };
+          })
+        );
+      } catch (e) {
+        // ignore refresh errors silently to avoid UI churn
+      }
+    };
+
+    refresh();
+    const id = setInterval(refresh, 60000); // refresh every 60s
+    return () => clearInterval(id);
+  }, [coinIds]);
 
   // Adjust number of items for mobile screens
   useEffect(() => {
@@ -210,10 +258,7 @@ const CryptoPrices = () => {
                   width={24}
                   height={24}
                   className="coin-icon"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                  }}
+                  onError={() => { /* hide broken icons silently */ }}
                 />
                 <div className="coin-details">
                   <div className="coin-symbol">{coin.symbol.toUpperCase()}</div>

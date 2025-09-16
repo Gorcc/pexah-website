@@ -27,6 +27,7 @@ type Messages = {
   bento: {
     title: string;
   };
+  bentoCards?: Record<string, string>;
   testimonials: {
     title: string;
     description: string;
@@ -115,6 +116,17 @@ const DICTIONARY: Record<Locale, Messages> = {
     },
     bento: {
       title: "Simple and Secure P2P Trading via Global Exchanges",
+    },
+    bentoCards: {
+      trusted: "Trusted P2P via Global Exchanges",
+      trustedDesc: "Escrow‑protected trades with exchange‑level KYC for secure, direct P2P buy/sell.",
+      fast: "Fast settlement in minutes",
+      fastDesc: "After payment is confirmed, most P2P trades complete within minutes — available 24/7.",
+      transparent: "Transparent pricing",
+      transparentDesc: "Clear quotes before every trade. No hidden fees and a simple, step‑by‑step flow.",
+      merchant: "Official merchant & compliance",
+      merchantDesc: "Operate as an official merchant on global exchanges with escrow and AML/KYC safeguards.",
+      learn: "Learn more",
     },
     testimonials: {
       title: "Trusted by Professional Traders",
@@ -252,6 +264,17 @@ const DICTIONARY: Record<Locale, Messages> = {
     bento: {
       title: "تداول P2P بسيط وآمن عبر البورصات العالمية",
     },
+    bentoCards: {
+      trusted: "تداول P2P موثوق عبر البورصات العالمية",
+      trustedDesc: "معاملات محمية بالضمان والتحقق عبر KYC لضمان الأمان.",
+      fast: "تسوية سريعة خلال دقائق",
+      fastDesc: "بعد تأكيد الدفع تُنجز معظم المعاملات خلال دقائق — متاح 24/7.",
+      transparent: "تسعير شفاف",
+      transparentDesc: "عرض السعر قبل كل عملية، بدون رسوم مخفية وبخطوات واضحة.",
+      merchant: "تاجر رسمي وامتثال",
+      merchantDesc: "تاجر رسمي على البورصات مع ضمان وامتثال AML/KYC.",
+      learn: "اعرف المزيد",
+    },
     testimonials: {
       title: "موثوق من المتداولين المحترفين",
       description: "انضم إلى آلاف المستثمرين والمتداولين المحترفين الذين يثقون بمنصتنا",
@@ -361,6 +384,17 @@ const DICTIONARY: Record<Locale, Messages> = {
       cta: "Связаться",
     },
     bento: { title: "Простой и безопасный P2P‑трейдинг через мировые биржи" },
+    bentoCards: {
+      trusted: "Надёжный P2P через мировые биржи",
+      trustedDesc: "Сделки под защитой эскроу и KYC для безопасности.",
+      fast: "Быстрая сделка за минуты",
+      fastDesc: "После оплаты сделки обычно завершаются в течение минут — 24/7.",
+      transparent: "Прозрачные цены",
+      transparentDesc: "Чёткие котировки без скрытых комиссий и понятный процесс.",
+      merchant: "Официальный мерчант и комплаенс",
+      merchantDesc: "Статус мерчанта на биржах, эскроу и AML/KYC.",
+      learn: "Подробнее",
+    },
     testimonials: {
       title: "Нам доверяют профессиональные трейдеры",
       description:

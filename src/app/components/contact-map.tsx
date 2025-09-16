@@ -13,7 +13,7 @@ const ContactMap = () => {
     email: "pexahuae@gmail.com",
     hours: "9:00 AM - 6:00 PM GST",
     whatsapp: "+971 52 394 1664",
-    telegram: "@pexah_support"
+    telegram: "@pexahp2pcrypto"
   };
 
   const { t } = useI18n();

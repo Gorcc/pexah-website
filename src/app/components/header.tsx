@@ -9,7 +9,7 @@ import { useI18n } from "@/app/i18n"
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
-  const { locale, setLocale, t, dir } = useI18n()
+  const { locale, setLocale, t } = useI18n()
   const [selectedLanguage, setSelectedLanguage] = useState(locale)
 
   const toggleMobileMenu = () => {
@@ -43,12 +43,23 @@ const Header = () => {
   return (
     <div className='header-container'>
         <div className="header-left">
+          {/* Desktop logo */}
           <Image
-            src="/images/hazır-01.png"
+            src="/images/pexah-logo.png"
             alt="PEXAH logo"
-            width={140}
-            height={50}
+            width={200}
+            height={60}
             priority
+            className="desktop-logo"
+          />
+          {/* Mobile logo */}
+          <Image
+            src="/images/hazır-02.png"
+            alt="PEXAH logo"
+            width={70}
+            height={70}
+            priority
+            className="mobile-logo"
           />
         </div>
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>

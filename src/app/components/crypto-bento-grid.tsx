@@ -15,10 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    name: "Trusted P2P via Global Exchanges",
-    description: "Escrow‑protected trades with exchange‑level KYC for secure, direct P2P buy/sell.",
+    nameKey: "trusted",
+    descriptionKey: "trustedDesc",
     href: "#",
-    cta: "Learn more",
+    ctaKey: "learn",
     className: "col-span-3 lg:col-span-2 row-span-3",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -38,10 +38,10 @@ const features = [
     ),
   },
   {
-    name: "Fast settlement in minutes",
-    description: "After payment is confirmed, most P2P trades complete within minutes — available 24/7.",
+    nameKey: "fast",
+    descriptionKey: "fastDesc",
     href: "#",
-    cta: "Learn more",
+    ctaKey: "learn",
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -61,10 +61,10 @@ const features = [
     ),
   },
   {
-    name: "Transparent pricing",
-    description: "Clear quotes before every trade. No hidden fees and a simple, step‑by‑step flow.",
+    nameKey: "transparent",
+    descriptionKey: "transparentDesc",
     href: "#",
-    cta: "Learn more",
+    ctaKey: "learn",
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -84,11 +84,11 @@ const features = [
     ),
   },
   {
-    name: "Official merchant & compliance",
-    description: "Operate as an official merchant on global exchanges with escrow and AML/KYC safeguards.",
+    nameKey: "merchant",
+    descriptionKey: "merchantDesc",
     className: "col-span-3 lg:col-span-1",
     href: "#",
-    cta: "Learn more",
+    ctaKey: "learn",
     background: (
       <div className="absolute inset-0 overflow-hidden rounded-lg">
         <Image 
@@ -178,13 +178,17 @@ export function CryptoBentoGrid() {
           <BentoGrid>
             {features.map((feature, idx) => (
               <BentoCard 
-                key={idx} 
-                {...feature}
+                key={idx}
+                name={t.bentoCards ? (t.bentoCards[feature.nameKey] as string) : feature.nameKey}
+                description={t.bentoCards ? (t.bentoCards[feature.descriptionKey] as string) : ""}
+                href={feature.href}
+                background={feature.background}
                 className={cn(
                   "bento-card bg-gray-800 border-gray-700",
                   "dark:bg-gray-800 dark:border-gray-700",
                   feature.className
                 )}
+                cta={t.bentoCards ? (t.bentoCards[feature.ctaKey] as string) : ""}
               />
             ))}
           </BentoGrid>

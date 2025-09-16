@@ -21,12 +21,7 @@ const Footer = () => {
               <a href="#" aria-label="Twitter" className="hover:text-gray-200 transition-colors">
                 <Twitter size={18} />
               </a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-gray-200 transition-colors">
-                <Linkedin size={18} />
-              </a>
-              <a href="#" aria-label="GitHub" className="hover:text-gray-200 transition-colors">
-                <Github size={18} />
-              </a>
+          
               <a href="mailto:hello@example.com" aria-label="Email" className="hover:text-gray-200 transition-colors">
                 <Mail size={18} />
               </a>
@@ -51,6 +46,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-gray-200 transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-gray-200 transition-colors">Security</a></li>
               <li><a href="#" className="hover:text-gray-200 transition-colors">Status</a></li>
+              <li><a href="/kyc-policy" className="hover:text-gray-200 transition-colors">KYC & AML Policy</a></li>
               <li className="flex items-center gap-3">
                 <a href="#" className="hover:text-gray-200 transition-colors">Terms</a>
                 <span className="text-gray-600">•</span>
