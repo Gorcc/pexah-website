@@ -66,14 +66,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-800/60">
+      {/* <div className="border-t border-gray-800/60">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-6">
           
           <div className="text-xs text-gray-400">
             {t.footer.developedBy} <span className="text-gray-200">Almego Studio</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </footer>
   )
 }

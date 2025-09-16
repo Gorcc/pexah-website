@@ -12,6 +12,12 @@ const Hero = () => {
   const descriptionRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLButtonElement>(null)
   const cryptoPricesRef = useRef<HTMLDivElement>(null)
+  const scrollToContact = () => {
+    const el = document.getElementById('contact')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   useEffect(() => {
     const prefersReduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -108,7 +114,7 @@ const Hero = () => {
             <button
               className="hero-cta"
               ref={ctaRef}
-              onClick={() => window.open("https://wa.me/971523941664", "_blank", "noopener,noreferrer")}
+              onClick={scrollToContact}
             >
               {t.hero.cta}
               <span className="arrow">→</span>
