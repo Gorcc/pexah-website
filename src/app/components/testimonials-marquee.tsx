@@ -5,6 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/i18n";
 import { Marquee } from "@/components/magicui/marquee";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,13 +70,13 @@ const TestimonialCard = ({
       className={cn(
         "relative h-full w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
         "border-gray-700 bg-gray-800/50 hover:bg-gray-800/80 backdrop-blur-sm",
-        "transition-all duration-300 hover:border-yellow-400/30 hover:shadow-lg",
-        "hover:shadow-yellow-400/10"
+        "transition-all duration-300 hover:border-sky-400/30 hover:shadow-lg",
+        "hover:shadow-sky-400/10"
       )}
     >
       <div className="flex flex-row items-center gap-3 mb-4">
         <Image 
-          className="rounded-full border-2 border-yellow-400/20" 
+          className="rounded-full border-2 border-sky-400/20" 
           width={40} 
           height={40} 
           alt="" 
@@ -100,6 +101,7 @@ export function TestimonialsMarquee() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -194,18 +196,12 @@ export function TestimonialsMarquee() {
         <div className="text-center mb-12">
           <h2 
             ref={titleRef}
-            className="text-4xl font-bold mb-4"
-            style={{
-              background: 'linear-gradient(135deg, #ffffff 0%, #c08415 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
+            className="text-4xl font-bold mb-4 text-gradient-blue"
           >
-            Trusted by Professional Traders
+            {t.testimonials.title}
           </h2>
           <p ref={descriptionRef} className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Join thousands of institutional investors and professional traders who trust our OTC platform
+            {t.testimonials.description}
           </p>
         </div>
         

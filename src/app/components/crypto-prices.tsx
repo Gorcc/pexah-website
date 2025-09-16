@@ -20,6 +20,7 @@ const CryptoPrices = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [basePrices, setBasePrices] = useState<CryptoPrice[]>([]);
+  const [itemsToShow, setItemsToShow] = useState<number>(10);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -74,6 +75,18 @@ const CryptoPrices = () => {
     const interval = setInterval(fetchPrices, 1200000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  // Adjust number of items for mobile screens
+  useEffect(() => {
+    const computeItems = () => {
+      if (typeof window === "undefined") return;
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      setItemsToShow(isMobile ? 5 : 10);
+    };
+    computeItems();
+    window.addEventListener("resize", computeItems);
+    return () => window.removeEventListener("resize", computeItems);
   }, []);
 
   // Price fluctuation effect
@@ -185,7 +198,7 @@ const CryptoPrices = () => {
         
       </div>
       <div className="prices-grid">
-        {prices.slice(0, 10).map((coin) => {
+        {prices.slice(0, itemsToShow).map((coin) => {
           const change = formatChange(coin.price_change_percentage_24h);
           const fluctuationColor = getFluctuationColor(coin.fluctuation);
           return (

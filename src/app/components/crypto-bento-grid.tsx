@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { cn } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { useI18n } from "@/app/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +30,7 @@ const features = [
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
         <div className="absolute top-4 left-4 z-10">
-          <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
             <TrendingUpIcon className="w-7 h-7 text-white" />
           </div>
         </div>
@@ -52,7 +53,7 @@ const features = [
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
         <div className="absolute top-4 right-4 z-10">
-          <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
             <div className="w-7 h-7 border-2 border-white rounded-sm"></div>
           </div>
         </div>
@@ -75,7 +76,7 @@ const features = [
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
         <div className="absolute top-4 right-4 z-10">
-          <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
             <InfinityIcon className="w-7 h-7 text-white" />
           </div>
         </div>
@@ -98,7 +99,7 @@ const features = [
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
         <div className="absolute top-4 right-4 z-10">
-          <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
+          <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
             <div className="text-white font-bold text-sm">VQF</div>
           </div>
         </div>
@@ -111,6 +112,7 @@ export function CryptoBentoGrid() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -167,15 +169,9 @@ export function CryptoBentoGrid() {
         <div className="mb-10 text-center">
           <h2 
             ref={titleRef}
-            className="text-4xl font-bold mb-4"
-            style={{
-              background: 'linear-gradient(135deg, #ffffff 0%, #c08415 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
+            className="text-4xl font-bold mb-4 text-gradient-blue"
           >
-            Simple and Secure P2P Trading via Global Exchanges
+            {t.bento.title}
           </h2>
         </div>
         <div ref={gridRef}>

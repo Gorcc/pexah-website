@@ -3,6 +3,7 @@
 import React from "react";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from "lucide-react";
 import "./contact-map.scss";
+import { useI18n } from "@/app/i18n";
 
 const ContactMap = () => {
   const office = {
@@ -15,13 +16,15 @@ const ContactMap = () => {
     telegram: "@pexah_support"
   };
 
+  const { t } = useI18n();
+
   return (
     <section className="contact-map">
       <div className="contact-map-container">
         <div className="contact-header">
-          <h2 className="contact-title">Get in Touch</h2>
+          <h2 className="contact-title">{t.contact.title}</h2>
           <p className="contact-subtitle">
-            Ready to start trading? Our team is here to help you get started with institutional-grade OTC services.
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -30,7 +33,7 @@ const ContactMap = () => {
             <div className="office-card">
               <div className="office-header">
                 <h4 className="office-city">{office.city}</h4>
-                <span className="primary-badge">HQ</span>
+                <span className="primary-badge">{t.contact.hq}</span>
               </div>
               <div className="office-details">
                 <div className="office-detail">
@@ -76,23 +79,23 @@ const ContactMap = () => {
 
           <div className="map-section">
             <div className="map-container">
-              <h3 className="map-section-title">Find Us on the Map</h3>
+              <h3 className="map-section-title">{t.contact.mapTitle}</h3>
               <div className="google-map">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.7267096395327!2d55.14013531501085!3d25.21448598389057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d5c8a6f3a1%3A0x8b8f8c8c8c8c8c8c!2sRAK%20DAO%20Business%20Centre!5e0!3m2!1sen!2sae!4v1620000000000!5m2!1sen!2sae"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d898.7250565679493!2d55.86671601361505!3d25.707727277902947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6753fa6a5079f%3A0x946ab571e0c1e2e0!2sRAKBANK%20HQ%20-%20Ras%20Al%20Khaimah!5e0!3m2!1sen!2sae!4v1758036920022!5m2!1sen!2sae"
                   width="100%"
                   height="300"
                   style={{ border: 0, borderRadius: '12px' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Ras Al Khaimah Office Location"
+                  title="RAKBANK HQ - Ras Al Khaimah"
                 ></iframe>
               </div>
               <div className="map-info">
                 <div className="location-pin">
                   <div className="pin-dot"></div>
-                  <span className="pin-label">RAK DAO Business Centre - Al Rifaa</span>
+                  <span className="pin-label">{t.contact.pinLabel}</span>
                 </div>
               </div>
             </div>
@@ -101,18 +104,16 @@ const ContactMap = () => {
 
         <div className="contact-cta">
           <div className="cta-content">
-            <h3 className="cta-title">Need Immediate Assistance?</h3>
-            <p className="cta-description">
-              Our trading desk is available 24/7 for urgent requests and large volume trades.
-            </p>
+            <h3 className="cta-title">{t.contact.ctaTitle}</h3>
+            <p className="cta-description">{t.contact.ctaDesc}</p>
             <div className="cta-buttons">
               <a href="tel:+971523941664" className="cta-btn primary">
                 <Phone className="btn-icon" />
-                Call Trading Desk
+                {t.contact.call}
               </a>
               <a href="mailto:pexahuae@gmail.com" className="cta-btn secondary">
                 <Mail className="btn-icon" />
-                Email Trading Team
+                {t.contact.email}
               </a>
             </div>
           </div>

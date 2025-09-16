@@ -5,6 +5,7 @@ import { Percent, Building2, Zap, Shield } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./trading-features.scss";
+import { useI18n } from "@/app/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,15 +82,17 @@ const TradingFeatures = () => {
     return () => ctx.revert();
   }, []);
 
+  const { t, locale } = useI18n();
+
   return (
-    <section ref={sectionRef} className="trading-features">
+    <section ref={sectionRef} className="trading-features" key={locale}>
       <div className="trading-features-container">
         <div className="features-header">
           <h2 ref={titleRef} className="features-title">
-            Our P2P Trading Features
+            {t.trading.title}
           </h2>
           <p ref={subtitleRef} className="features-subtitle">
-            Discover the key features that make PEXAH the trusted choice for secure P2P cryptocurrency trading
+            {t.trading.subtitle}
           </p>
         </div>
 
@@ -98,15 +101,14 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Shield className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Escrow‑Protected Security</h3>
+            <h3 className="feature-title">{t.trading.features.security.title}</h3>
             <p className="feature-description">
-              Trades are protected by the exchanges&apos; official escrow and verified with KYC for maximum safety.
+              {t.trading.features.security.description}
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Exchange escrow protection</div>
-              <div className="benefit">✓ KYC compliance</div>
-              <div className="benefit">✓ Fraud prevention</div>
-              <div className="benefit">✓ Clear dispute resolution</div>
+              {t.trading.features.security.bullets.map((b, i) => (
+                <div className="benefit" key={i}>✓ {b}</div>
+              ))}
             </div>
           </div>
 
@@ -114,14 +116,14 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Zap className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Fast Settlement</h3>
+            <h3 className="feature-title">{t.trading.features.speed.title}</h3>
             <p className="feature-description">
-              After you complete payment, P2P trades are typically finalized within minutes.
+              {t.trading.features.speed.description}
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Settlement in minutes</div>
-              <div className="benefit">✓ 24/7 availability</div>
-              <div className="benefit">✓ Clear step‑by‑step flow</div>
+              {t.trading.features.speed.bullets.map((b, i) => (
+                <div className="benefit" key={i}>✓ {b}</div>
+              ))}
             </div>
           </div>
 
@@ -129,15 +131,14 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Percent className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">Transparent Pricing</h3>
+            <h3 className="feature-title">{t.trading.features.pricing.title}</h3>
             <p className="feature-description">
-              Fees and rates are shared upfront before every trade — no surprises, no hidden costs.
+              {t.trading.features.pricing.description}
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Fixed quote before trade</div>
-              <div className="benefit">✓ No hidden fees</div>
-              <div className="benefit">✓ Market‑aligned pricing</div>
-              <div className="benefit">✓ Clear proof of payment</div>
+              {t.trading.features.pricing.bullets.map((b, i) => (
+                <div className="benefit" key={i}>✓ {b}</div>
+              ))}
             </div>
           </div>
 
@@ -145,15 +146,14 @@ const TradingFeatures = () => {
             <div className="feature-icon">
               <Building2 className="feature-icon-svg" />
             </div>
-            <h3 className="feature-title">For All Users</h3>
+            <h3 className="feature-title">{t.trading.features.general.title}</h3>
             <p className="feature-description">
-              Official merchant on global exchanges with dedicated support for all P2P trading needs.
+              {t.trading.features.general.description}
             </p>
             <div className="feature-benefits">
-              <div className="benefit">✓ Official merchant status</div>
-              <div className="benefit">✓ Dedicated support</div>
-              <div className="benefit">✓ Multi‑exchange coverage</div>
-              <div className="benefit">✓ Clear, step‑by‑step process</div>
+              {t.trading.features.general.bullets.map((b, i) => (
+                <div className="benefit" key={i}>✓ {b}</div>
+              ))}
             </div>
           </div>
         </div>

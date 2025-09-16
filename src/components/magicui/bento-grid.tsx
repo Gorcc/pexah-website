@@ -71,7 +71,7 @@ const BentoCard = ({
           variant="link"
           asChild
           size="sm"
-          className="pointer-events-auto p-0 text-yellow-400 hover:text-yellow-300"
+          className="pointer-events-auto p-0 text-sky-400 hover:text-sky-300"
         >
           <a href={href}>
             {cta}
@@ -90,7 +90,7 @@ const BentoCard = ({
         variant="link"
         asChild
         size="sm"
-        className="pointer-events-auto p-0 text-yellow-400 hover:text-yellow-300 underline"
+        className="pointer-events-auto p-0 text-sky-400 hover:text-sky-300 underline"
       >
         <a href={href}>
           {cta}

@@ -34,11 +34,13 @@
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffffff 0%, #c08415 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   line-height: 1.2;
+  color: transparent;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #0A91E6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .contact-subtitle {
@@ -66,12 +68,12 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 24px;
-  text-shadow: 0 0 15px rgba(255, 193, 28, 0.3);
+  text-shadow: 0 0 15px rgba(10, 145, 230, 0.3);
 }
 
 .office-card {
-  background: linear-gradient(135deg, rgba(255, 193, 28, 0.1) 0%, rgba(255, 193, 28, 0.05) 100%);
-  border: 1px solid rgba(255, 193, 28, 0.3);
+  background: linear-gradient(135deg, rgba(10, 145, 230, 0.1) 0%, rgba(10, 145, 230, 0.05) 100%);
+  border: 1px solid rgba(10, 145, 230, 0.3);
   border-radius: 16px;
   padding: 32px;
   transition: all 0.3s ease;
@@ -80,9 +82,9 @@
   flex-direction: column;
 
   &:hover {
-    border-color: rgba(255, 193, 28, 0.4);
+    border-color: rgba(10, 145, 230, 0.4);
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(255, 193, 28, 0.1);
+    box-shadow: 0 10px 30px rgba(10, 145, 230, 0.1);
   }
 }
 
@@ -100,8 +102,8 @@
 }
 
 .primary-badge {
-  background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
-  color: #000;
+  background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
+  color: #fff;
   font-size: 12px;
   font-weight: 700;
   padding: 6px 12px;
@@ -125,7 +127,7 @@
 .detail-icon {
   width: 20px;
   height: 20px;
-  color: #ffe150;
+  color: #0A91E6;
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -142,8 +144,8 @@
 }
 
 .map-container {
-  background: linear-gradient(135deg, rgba(255, 193, 28, 0.1) 0%, rgba(255, 193, 28, 0.05) 100%);
-  border: 1px solid rgba(255, 193, 28, 0.3);
+  background: linear-gradient(135deg, rgba(10, 145, 230, 0.1) 0%, rgba(10, 145, 230, 0.05) 100%);
+  border: 1px solid rgba(10, 145, 230, 0.3);
   border-radius: 16px;
   padding: 32px;
   transition: all 0.3s ease;
@@ -152,9 +154,9 @@
   flex-direction: column;
 
   &:hover {
-    border-color: rgba(255, 193, 28, 0.4);
+    border-color: rgba(10, 145, 230, 0.4);
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(255, 193, 28, 0.1);
+    box-shadow: 0 10px 30px rgba(10, 145, 230, 0.1);
   }
 }
 
@@ -163,7 +165,7 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 24px;
-  text-shadow: 0 0 15px rgba(255, 193, 28, 0.3);
+  text-shadow: 0 0 15px rgba(10, 145, 230, 0.3);
 }
 
 .google-map {
@@ -183,14 +185,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 193, 28, 0.1);
-  border: 1px solid rgba(255, 193, 28, 0.3);
+  background: rgba(10, 145, 230, 0.1);
+  border: 1px solid rgba(10, 145, 230, 0.3);
   border-radius: 20px;
   padding: 8px 16px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(255, 193, 28, 0.2);
+    background: rgba(10, 145, 230, 0.2);
     transform: translateY(-2px);
   }
 }
@@ -198,20 +200,20 @@
 .pin-dot {
   width: 8px;
   height: 8px;
-  background: #ffe150;
+  background: #0A91E6;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(255, 193, 28, 0.5);
+  box-shadow: 0 0 10px rgba(10, 145, 230, 0.5);
 }
 
 .pin-label {
   font-size: 12px;
   font-weight: 600;
-  color: #ffe150;
+  color: #0A91E6;
 }
 
 .contact-cta {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 193, 28, 0.2);
+  border: 1px solid rgba(10, 145, 230, 0.2);
   border-radius: 20px;
   padding: 40px;
   text-align: center;
@@ -222,7 +224,7 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 12px;
-  text-shadow: 0 0 15px rgba(255, 193, 28, 0.3);
+  text-shadow: 0 0 15px rgba(10, 145, 230, 0.3);
 }
 
 .cta-description {
@@ -252,25 +254,25 @@
   transition: all 0.3s ease;
 
   &.primary {
-    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
-    color: #000;
-    box-shadow: 0 6px 20px rgba(255, 193, 28, 0.3);
+    background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(10, 145, 230, 0.3);
 
     &:hover {
-      background: linear-gradient(135deg, #ffc01c 0%, #ffe150 100%);
+      background: linear-gradient(135deg, #0F73D8 0%, #0A91E6 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 193, 28, 0.4);
+      box-shadow: 0 8px 25px rgba(10, 145, 230, 0.4);
     }
   }
 
   &.secondary {
     background: transparent;
-    color: #ffe150;
-    border: 2px solid rgba(255, 193, 28, 0.3);
+    color: #0A91E6;
+    border: 2px solid rgba(10, 145, 230, 0.3);
 
     &:hover {
-      background: rgba(255, 193, 28, 0.1);
-      border-color: rgba(255, 193, 28, 0.5);
+      background: rgba(10, 145, 230, 0.1);
+      border-color: rgba(10, 145, 230, 0.5);
       transform: translateY(-2px);
     }
   }
@@ -373,19 +375,19 @@
   flex: 1;
   justify-content: center;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 193, 28, 0.15);
+  border: 1px solid rgba(10, 145, 230, 0.15);
   color: #e0e0e0;
 
   .btn-icon {
     width: 16px;
     height: 16px;
-    color: #ffe150;
+    color: #0A91E6;
   }
 
   &:hover {
-    border-color: rgba(255, 193, 28, 0.3);
+    border-color: rgba(10, 145, 230, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 193, 28, 0.1);
-    background: linear-gradient(135deg, rgba(255, 193, 28, 0.1) 0%, rgba(255, 193, 28, 0.05) 100%);
+    box-shadow: 0 8px 25px rgba(10, 145, 230, 0.1);
+    background: linear-gradient(135deg, rgba(10, 145, 230, 0.1) 0%, rgba(10, 145, 230, 0.05) 100%);
   }
 }

@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #ffe150 0%, #ffc01c 50%, #ffe150 100%);
+    background: linear-gradient(90deg, #0A91E6 0%, #0F73D8 50%, #0A91E6 100%);
     background-size: 200% 100%;
     animation: shimmer-border 3s ease-in-out infinite;
   }
@@ -78,7 +78,7 @@
   h3 {
     font-size: 22px;
     font-weight: 700;
-    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+    background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -324,8 +324,8 @@
   }
   
   button {
-    background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
-    color: #000;
+    background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 12px;
@@ -336,7 +336,7 @@
     box-shadow: 0 4px 15px rgba(255, 193, 28, 0.3);
     
     &:hover {
-      background: linear-gradient(135deg, #ffc01c 0%, #ffe150 100%);
+      background: linear-gradient(135deg, #0F73D8 0%, #0A91E6 100%);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255, 193, 28, 0.4);
     }

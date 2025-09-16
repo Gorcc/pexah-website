@@ -1,15 +1,21 @@
+"use client"
 import React from 'react'
+import Image from 'next/image'
+import { useI18n } from '@/app/i18n'
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react'
 
 const Footer = () => {
+  const { t } = useI18n()
   return (
     <footer className="w-full border-t border-gray-800/60 bg-[#131316]">
       <div className="mx-auto w-full max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="space-y-4">
-            <div className="text-sm tracking-[0.2em] text-gray-200">PEXAH</div>
+            <div className="flex items-center">
+              <Image src="/images/hazır-02.png" alt="PEXAH footer logo" width={120} height={34} />
+            </div>
             <p className="text-sm text-gray-400">
-              Institutional-grade crypto trading infrastructure. Secure, fast, and reliable.
+              {t.footer.tagline}
             </p>
             <div className="flex items-center gap-3 text-gray-400">
               <a href="#" aria-label="Twitter" className="hover:text-gray-200 transition-colors">
@@ -37,15 +43,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-gray-200">Products</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-gray-200 transition-colors">OTC Trading</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">P2P Platform</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">API</a></li>
-              <li><a href="#" className="hover:text-gray-200 transition-colors">Fees</a></li>
-            </ul>
-          </div>
+          {/* Products column removed per request */}
 
           <div>
             <h4 className="mb-4 text-sm font-semibold text-gray-200">Support</h4>
@@ -65,9 +63,9 @@ const Footer = () => {
 
       <div className="border-t border-gray-800/60">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-6">
-          <div className="text-xs tracking-[0.2em] text-gray-300">PEXAH</div>
+          
           <div className="text-xs text-gray-400">
-            Design & Developed by <span className="text-gray-200">Almego Studio</span>
+            {t.footer.developedBy} <span className="text-gray-200">Almego Studio</span>
           </div>
         </div>
       </div>

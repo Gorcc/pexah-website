@@ -6,6 +6,7 @@ import { Users, Target, Award, Shield, Clock, Eye } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./about-us.scss";
+import { useI18n } from "@/app/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,26 +159,25 @@ const AboutUs = () => {
     return () => ctx.revert();
   }, []);
 
+  const { t } = useI18n();
+  const valueIcons = [Shield, Clock, Eye, Users, Award];
+
   return (
     <section ref={sectionRef} className="about-us">
       <div className="about-us-container">
         <div className="about-header">
-          <h2 ref={titleRef} className="about-title">About Us</h2>
+          <h2 ref={titleRef} className="about-title">{t.about.title}</h2>
           <p ref={subtitleRef} className="about-subtitle">
-            PEXAH is a Ras Al Khaimah–based crypto P2P transaction provider.
+            {t.about.subtitle}
           </p>
         </div>
 
         <div className="about-content">
           <div ref={storyRef} className="about-story">
             <div className="story-text story-content">
-              <h3 className="story-title">About Us</h3>
-              <p className="story-description">
-                PEXAH is a crypto P2P transaction provider based in Ras Al Khaimah. Our primary goal is to enable individuals to buy and sell cryptocurrency through global exchanges in a secure, fast, and transparent way.
-              </p>
-              <p className="story-description">
-                As the crypto world grows, the greatest need has been trust. At PEXAH, we meet this need — offering our clients not only a trading platform but also a business partner they can rely on.
-              </p>
+              <h3 className="story-title">{t.about.storyTitle}</h3>
+              <p className="story-description">{t.about.storyP1}</p>
+              <p className="story-description">{t.about.storyP2}</p>
             </div>
             <div className="story-media">
               <div style={{ width: '100%', height: 0, paddingBottom: '100%', position: 'relative', borderRadius: 16, overflow: 'hidden' }}>
@@ -197,30 +197,26 @@ const AboutUs = () => {
               <div className="mission-icon">
                 <Target className="icon" />
               </div>
-              <h3 className="mission-title">Our Mission</h3>
-              <p className="mission-text">
-                To be a bridge where individuals can trade with confidence in P2P trading — one of the strongest areas of digital finance.
-              </p>
+              <h3 className="mission-title">{t.about.missionTitle}</h3>
+              <p className="mission-text">{t.about.missionText}</p>
             </div>
 
             <div className="vision">
               <div className="vision-icon">
                 <Award className="icon" />
               </div>
-              <h3 className="vision-title">Our Vision</h3>
-              <p className="vision-text">
-                To become the regional leader and a trusted global brand in crypto P2P transactions.
-              </p>
+              <h3 className="vision-title">{t.about.visionTitle}</h3>
+              <p className="vision-text">{t.about.visionText}</p>
             </div>
           </div>
 
         <div className="values-section">
-          <h3 className="values-title">Our Core Values</h3>
+          <h3 className="values-title">{t.about.valuesTitle}</h3>
           <div ref={valuesRef} className="values-grid">
-            {values.map((value, index) => (
+            {t.about.values.map((value, index) => (
               <div key={index} className="value-card">
                   <div className="value-icon">
-                    <value.icon className="icon" />
+                    {(() => { const Icon = valueIcons[index] || Shield; return <Icon className="icon" />; })()}
                   </div>
                   <h4 className="value-title">{value.title}</h4>
                   <p className="value-description">{value.description}</p>

@@ -11,8 +11,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(255, 193, 28, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 193, 28, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 20%, rgba(10, 145, 230, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(10, 145, 230, 0.05) 0%, transparent 50%);
     pointer-events: none;
   }
 }
@@ -34,11 +34,13 @@
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffffff 0%, #c08415 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   line-height: 1.2;
+  color: transparent;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #0A91E6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .about-subtitle {
@@ -98,16 +100,16 @@
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(255, 193, 28, 0.3);
+    border-color: rgba(10, 145, 230, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(255, 193, 28, 0.1);
+    box-shadow: 0 10px 30px rgba(10, 145, 230, 0.1);
   }
 }
 
 .stat-number {
   font-size: 32px;
   font-weight: 700;
-  color: #ffe150;
+  color: #0A91E6;
   display: block;
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(255, 193, 28, 0.4);
@@ -161,7 +163,7 @@
 .mission-icon, .vision-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+  background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -244,7 +246,7 @@
 .value-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #ffe150 0%, #ffc01c 100%);
+  background: linear-gradient(135deg, #0A91E6 0%, #0F73D8 100%);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -317,7 +319,7 @@
 .highlight-number {
   font-size: 28px;
   font-weight: 700;
-  color: #ffe150;
+  color: #0A91E6;
   text-shadow: 0 0 15px rgba(255, 193, 28, 0.4);
 }
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import CryptoPrices from './crypto-prices'
+import { useI18n } from '@/app/i18n'
 import './hero.scss'
 
 const Hero = () => {
@@ -67,19 +68,21 @@ const Hero = () => {
     return () => ctx.revert()
   }, [])
 
+  const { t } = useI18n()
+
   return (
     <section className="hero" ref={heroRef}>
       <div className="hero-container">
         <div className="hero-left">
           <div className="hero-content">
             <h1 className="hero-title" ref={titleRef}>
-              <span className="title-line">Your <span className="gradient-text">trusted</span> partner in <span className="gradient-text">crypto</span> P2P <span className="gradient-text">transactions</span></span>
+              <span className="title-line">{t.hero.title1} <span className="gradient-text">{t.hero.title2}</span> {t.hero.partner} {t.hero.inWord} <span className="gradient-text">{t.hero.title3}</span> {t.hero.p2p} <span className="gradient-text">{t.hero.title4}</span></span>
             </h1>
             <p className="hero-description" ref={descriptionRef}>
-              PEXAH offers fast, secure, and transparent solutions for your crypto P2P buy-sell transactions via global exchanges.
+              {t.hero.description}
             </p>
             <button className="hero-cta" ref={ctaRef}>
-              Contact us
+              {t.hero.cta}
               <span className="arrow">→</span>
             </button>
           </div>
