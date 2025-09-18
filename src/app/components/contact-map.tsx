@@ -10,7 +10,7 @@ const ContactMap = () => {
     city: "Ras Al Khaimah",
     address: "Office A, RAK DAO Business Centre, RAK BANK ROC Office, Ground Floor, Al Rifaa, Sheikh Mohammed Bin Zayed Road, Ras Al Khaimah, United Arab Emirates",
     phone: "+971 52 394 1664",
-    email: "pexahuae@gmail.com",
+    email: "contact@pexah.io",
     hours: "9:00 AM - 6:00 PM GST",
     whatsapp: "+971 52 394 1664",
     telegram: "@pexahp2pcrypto"
